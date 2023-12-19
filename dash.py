@@ -15,11 +15,11 @@ disease = st.selectbox("Select One:", ["Pneumonia", "Influenza"])
 if disease == "Pneumonia":
     dcd_pneu_plt = sns.barplot(decades_natl, x = 'year', y = 'pneu_deaths', color = 'skyblue')
     dcd_pneu_plt.set(xlabel = "Year", ylabel = "Deaths From Pneumonia", title = "Deaths due to Pneumonia by Year")
-    st.pyplot(dcd_pneu_plt.figure)
+    st.pyplot(dcd_pneu_plt.figure, clear_figure=True)
 if disease == "Influenza":
     dcd_flu_plt = sns.barplot(decades_natl, x = 'year', y = 'flu_deaths', color = 'firebrick')
     dcd_flu_plt.set(xlabel = "Year", ylabel = "Deaths From Influenza", title = "Deaths due to Influenza by Year")
-    st.pyplot(dcd_flu_plt.figure)
+    st.pyplot(dcd_flu_plt.figure, clear_figure=True)
 
 st.markdown("We can also see trends across a single year for either pneumonia or influenza")
 year = st.selectbox("Select a Year:", [2010,2011,2012,2013,2014,2015,2016,2017,2018])
@@ -28,10 +28,10 @@ st.markdown(disease)
 graph_year = deaths[(deaths['year'] == year) & (deaths['geo_level'] == "National") & (deaths['age'] == "All")]
 if disease == "Pneumonia":
     year_plt = sns.lineplot(graph_year, x = 'week', y = 'pneu_deaths', color = 'skyblue')
-    st.pyplot(year_plt.figure)
+    st.pyplot(year_plt.figure, clear_figure=True)
 if disease == "Influenza":
     year_plt = sns.lineplot(graph_year, x = 'week', y = 'flu_deaths', color = 'firebrick')
-    st.pyplot(year_plt.figure)
+    st.pyplot(year_plt.figure, clear_figure=True)
 
 
 #plot = sns.scatterplot(graph_penguins, x = 'bill_depth_mm', y = 'bill_length_mm')
