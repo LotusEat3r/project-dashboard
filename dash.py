@@ -8,9 +8,9 @@ st.title('Deaths in the United States from Pneumonia and Influenza')
 deaths = pd.read_csv('./deaths.csv')
 
 
-st.markdown(_(
+st.markdown(
     "Pneumonia and Influenza are deadly seasonal viruses. Using past data we hope to find information about trends in these viruses and their lethality to help prevent further harm and better care for the vulnerable around us."
-))
+)
 
 decades_natl = deaths[(deaths['geo_level']  == 'National') & (deaths['age'] == 'All')].groupby('year').sum(numeric_only = True).reset_index()
 
