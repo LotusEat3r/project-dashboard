@@ -37,7 +37,7 @@ if disease == "Influenza":
 st.markdown("Lastly, we can view deaths by geographic region.")
 region = st.selectbox("Select a Region:", ["1 - Connecticut, Maine, Massachusetts, New Hampshire, Rhode Island, Vermont","2 - New York, New Jersey","3 - Delaware, District of Columbia, Maryland, Pennsylvania, Virginia, West Virginia","4 - Alabama, Florida, Georgia, Kentucky, Mississippi, North Carolina, South Carolina, Tennessee","5 - Illinois, Indiana, Minnesota, Michigan, Ohio, Wisconsin","6 - Arkansas, Louisiana, New Mexico, Oklahoma, Texas","7 - Iowa, Kansas, Missouri, Nebraska","8 - Colorado, Montana, North Dakota, South Dakota, Utah, Wyoming","9 - Arizona, California, Hawaii, Nevada","10 - Alaska, Idaho, Oregon, Washington"])
 bck_reg = region[0]
-graph_region = deaths[(deaths['region'] == bck_reg) & (deaths['geo_level'] == "Region")].groupby('year').sum(numeric_only=True)
+graph_region = deaths[(deaths['region'] == int(bck_reg)) & (deaths['geo_level'] == "Region")].groupby('year').sum(numeric_only=True)
 if disease == "Pneumonia":
     region_plt = sns.lineplot(graph_region, x='year', y='pneu_deaths', color = 'skyblue')
     st.pyplot(region_plt.figure, clear_figure=True)
