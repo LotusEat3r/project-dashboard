@@ -22,20 +22,16 @@ if disease == "Influenza":
     st.pyplot(dcd_flu_plt.figure, clear_figure=True)
 
 st.markdown("We can also see trends across a single year for either pneumonia or influenza")
-year = st.multiselect("Select One or More Years:", [2010,2011,2012,2013,2014,2015,2016,2017,2018])
+year = st.selectbox("Select a Year:", [2010,2011,2012,2013,2014,2015,2016,2017,2018])
 
 graph_year = deaths[(deaths['year'] == year) & (deaths['geo_level'] == "National") & (deaths['age'] == "All")]
-
 if disease == "Pneumonia":
-    year_plt = sns.lineplot(graph_year, x = 'week', y = 'pneu_deaths', hue = year, color = 'skyblue')
+    year_plt = sns.lineplot(graph_year, x = 'week', y = 'pneu_deaths', color = 'skyblue')
+    year_plt.set(xlabel = "Week", ylabel = "Deaths From Pneumonia", title = f"Death Due to Pneumonia in {year} by Week")
     st.pyplot(year_plt.figure, clear_figure=True)
 if disease == "Influenza":
-    year_plt = sns.lineplot(graph_year, x = 'week', y = 'flu_deaths', hue = year, color = 'firebrick')
+    year_plt = sns.lineplot(graph_year, x = 'week', y = 'flu_deaths', color = 'firebrick')
+    year_plt.set(xlabel = "Week", ylabel = "Deaths From Influenza", title = f"Death Due to Influenza in {year} by Week")
     st.pyplot(year_plt.figure, clear_figure=True)
 
 
-#plot = sns.scatterplot(graph_penguins, x = 'bill_depth_mm', y = 'bill_length_mm')
-#plot.set(title = f"Bill Length vs. Bill Depth for {species} Penguins from {island} Island", xlabel = "Bill Depth (mm)", ylabel = "Bill Length (mm)")
-
-
-#st.pyplot(plot.figure)
