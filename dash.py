@@ -21,7 +21,7 @@ if disease == "Influenza":
     dcd_flu_plt.set(xlabel = "Year", ylabel = "Deaths From Influenza", title = "Deaths due to Influenza by Year")
     st.pyplot(dcd_flu_plt.figure, clear_figure=True)
 
-st.markdown("We can also see trends across a single year for either pneumonia or influenza")
+st.markdown("We can also see trends across a single year for either pneumonia or influenza.")
 year = st.selectbox("Select a Year:", [2010,2011,2012,2013,2014,2015,2016,2017,2018])
 
 graph_year = deaths[(deaths['year'] == year) & (deaths['geo_level'] == "National") & (deaths['age'] == "All")]
@@ -34,4 +34,6 @@ if disease == "Influenza":
     year_plt.set(xlabel = "Week", ylabel = "Deaths From Influenza", title = f"Death Due to Influenza in {year} by Week")
     st.pyplot(year_plt.figure, clear_figure=True)
 
-
+st.markdown("Lastly, we can view deaths by geographic region.")
+region = st.selectbox("Select a Region:" ["1 - Connecticut, Maine, Massachusetts, New Hampshire, Rhode Island, Vermont","2 - New York, New Jersey","3 - Delaware, District of Columbia, Maryland, Pennsylvania, Virginia, West Virginia","4 - Alabama, Florida, Georgia, Kentucky, Mississippi, North Carolina, South Carolina, Tennessee","5 - Illinois, Indiana, Minnesota, Michigan, Ohio, Wisconsin","6 - Arkansas, Louisiana, New Mexico, Oklahoma, Texas","7 - Iowa, Kansas, Missouri, Nebraska","8 - Colorado, Montana, North Dakota, South Dakota, Utah, Wyoming","9 - Arizona, California, Hawaii, Nevada","10 - Alaska, Idaho, Oregon, Washington"])
+st.markdown(region[0])
