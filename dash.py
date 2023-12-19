@@ -20,7 +20,7 @@ disease = st.selectbox("Select One:", ["Pneumonia", "Influenza"])
 
 if disease == 'Pneumonia':
     st.pyplot(dcd_flu_plt.figure)
-if disease == "Influenza":
+elif disease == "Influenza":
     st.pyplot(dcd_pneu_plt.figure)
 
 #species = st.selectbox("Select a Species", penguins['species'].unique())
