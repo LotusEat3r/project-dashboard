@@ -28,8 +28,10 @@ st.markdown(disease)
 graph_year = deaths[(deaths['year'] == year) & (deaths['geo_level'] == "National") & (deaths['age'] == "All")]
 if disease == "Pneumonia":
     year_plt = sns.lineplot(graph_year, x = 'week', y = 'pneu_deaths', color = 'skyblue')
+    st.pyplot(year_plt.figure)
 if disease == "Influenza":
     year_plt = sns.lineplot(graph_year, x = 'week', y = 'flu_deaths', color = 'firebrick')
+    st.pyplot(year_plt.figure)
 
 
 #plot = sns.scatterplot(graph_penguins, x = 'bill_depth_mm', y = 'bill_length_mm')
