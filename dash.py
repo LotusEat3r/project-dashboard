@@ -10,7 +10,7 @@ deaths = pd.read_csv('./deaths.csv')
 decades_natl = deaths[(deaths['geo_level']  == 'National') & (deaths['age'] == 'All')].groupby('year').sum(numeric_only = True).reset_index()
 
 st.markdown("One of the first things we can see is the number of national deaths due to influenza and pneumonia for the United States between the years 2010 and 2018.")
-disease = st.selectbox("Select One:", ["Pneumonia", "Influenza"])
+disease = st.selectbox("Select One (this will affect all plots):", ["Pneumonia", "Influenza"])
 
 if disease == "Pneumonia":
     dcd_pneu_plt = sns.barplot(decades_natl, x = 'year', y = 'pneu_deaths', color = 'skyblue')
@@ -22,15 +22,15 @@ if disease == "Influenza":
     st.pyplot(dcd_flu_plt.figure, clear_figure=True)
 
 st.markdown("We can also see trends across a single year for either pneumonia or influenza")
-year = st.selectbox("Select a Year:", [2010,2011,2012,2013,2014,2015,2016,2017,2018])
-st.markdown(disease)
+year = st.multiselect("Select One or More Years:", [2010,2011,2012,2013,2014,2015,2016,2017,2018])
 
 graph_year = deaths[(deaths['year'] == year) & (deaths['geo_level'] == "National") & (deaths['age'] == "All")]
+
 if disease == "Pneumonia":
-    year_plt = sns.lineplot(graph_year, x = 'week', y = 'pneu_deaths', color = 'skyblue')
+    year_plt = sns.lineplot(graph_year, x = 'week', y = 'pneu_deaths', hue = year, color = 'skyblue')
     st.pyplot(year_plt.figure, clear_figure=True)
 if disease == "Influenza":
-    year_plt = sns.lineplot(graph_year, x = 'week', y = 'flu_deaths', color = 'firebrick')
+    year_plt = sns.lineplot(graph_year, x = 'week', y = 'flu_deaths', hue = year, color = 'firebrick')
     st.pyplot(year_plt.figure, clear_figure=True)
 
 
