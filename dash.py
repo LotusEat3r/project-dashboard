@@ -28,7 +28,7 @@ dis = st.selectbox("Select One:", ["Pneumonia", "Influenza"])
 graph_year = deaths[(deaths['year'] == year) & (deaths['geo_level'] == "National") & (deaths['age'] == "All")]
 if dis == "Pneumonia":
     year_plt = sns.lineplot(graph_year, x = 'week', y = 'pneu_deaths', color = 'skyblue')
-if dis== "Influenza":
+if dis == "Influenza":
     year_plt = sns.lineplot(graph_year, x = 'week', y = 'flu_deaths', color = 'firebrick')
 
 
