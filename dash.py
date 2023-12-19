@@ -13,7 +13,7 @@ st.markdown("One of the first things we can see is the number of national deaths
 disease = st.selectbox("Select One:", ["Pneumonia", "Influenza"])
 
 if disease == "Pneumonia":
-    sdcd_pneu_plt = sns.barplot(decades_natl, x = 'year', y = 'pneu_deaths', color = 'skyblue')
+    dcd_pneu_plt = sns.barplot(decades_natl, x = 'year', y = 'pneu_deaths', color = 'skyblue')
     dcd_pneu_plt.set(xlabel = "Year", ylabel = "Deaths From Pneumonia", title = "Deaths due to Pneumonia by Year")
     st.pyplot(dcd_pneu_plt.figure)
 if disease == "Influenza":
