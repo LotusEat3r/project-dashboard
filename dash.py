@@ -44,3 +44,5 @@ if disease == "Pneumonia":
 if disease == "Influenza":
     region_plt = sns.lineplot(graph_region, x='year', y='flu_deaths', color='firebrick')
     st.pyplot(region_plt.figure, clear_figure=True)
+
+st.markdown("For more information, you can find my github repo [here](https://github.com/LotusEat3r/Project). You can also find my own exploratory data analysis on my blog: [Part I](https://lotuseat3r.github.io/introeda/) and [Part II](https://lotuseat3r.github.io/eda/)")
