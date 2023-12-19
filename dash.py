@@ -18,10 +18,11 @@ dcd_pneu_plt.set(xlabel = "Year", ylabel = "Deaths From Pneumonia", title = "Dea
 st.markdown("One of the first things we can see is the number of national deaths due to influenza and pneumonia for the United States between the years 2010 and 2018.")
 disease = st.selectbox("Select One:", ["Pneumonia", "Influenza"])
 
-if disease == 'Pneumonia':
-    st.pyplot(dcd_flu_plt.figure)
-elif disease == "Influenza":
-    st.pyplot(dcd_pneu_plt.figure)
+if disease == "Pneumonia":
+    st.write("true")
+
+st.pyplot(dcd_flu_plt.figure)
+st.pyplot(dcd_pneu_plt.figure)
 
 #species = st.selectbox("Select a Species", penguins['species'].unique())
 #island = st.selectbox("Select an Island", penguins[penguins['species'] == species]['island'].unique())
