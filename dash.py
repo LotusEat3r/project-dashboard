@@ -22,7 +22,7 @@ if disease == "Influenza":
     st.pyplot(dcd_flu_plt.figure)
 
 st.markdown("We can also see trends across a single year for either pneumonia or influenza")
-year = st.selectbox("Select a Year:", deaths['year'].unique()[1:10])
+year = st.selectbox("Select a Year:", [2010,2011,2012,2013,2014,2015,2016,2017,2018])
 
 #species = st.selectbox("Select a Species", penguins['species'].unique())
 #island = st.selectbox("Select an Island", penguins[penguins['species'] == species]['island'].unique())
