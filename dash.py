@@ -23,12 +23,12 @@ if disease == "Influenza":
 
 st.markdown("We can also see trends across a single year for either pneumonia or influenza")
 year = st.selectbox("Select a Year:", [2010,2011,2012,2013,2014,2015,2016,2017,2018])
-disease = st.selectbox("Select One:", ["Pneumonia", "Influenza"])
+dis = st.selectbox("Select One:", ["Pneumonia", "Influenza"])
 
 graph_year = deaths[(deaths['year'] == year) & (deaths['geo_level'] == "National") & (deaths['age'] == "All")]
-if disease == "Pneumonia":
+if dis == "Pneumonia":
     year_plt = sns.lineplot(graph_year, x = 'week', y = 'pneu_deaths', color = 'skyblue')
-if disease == "Influenza":
+if dis== "Influenza":
     year_plt = sns.lineplot(graph_year, x = 'week', y = 'flu_deaths', color = 'firebrick')
 
 
